@@ -24,12 +24,12 @@ public class DialogNewNote extends DialogFragment {     //Create a dialog
 
         View dialogView = inflater.inflate(R.layout.dialog_new_note, null);     //Calling the desired layout.
 
-        final EditText editTitle = (EditText) dialogView.findViewById(R.id.editTitle);      //Remember, with final we make references.
-        final EditText editDescription = (EditText) dialogView.findViewById(R.id.editDescription);
+        final EditText edTitle = (EditText) dialogView.findViewById(R.id.editTitle);      //Remember, with final we make references.
+        final EditText edDescription = (EditText) dialogView.findViewById(R.id.editDescription);
 
-        final CheckBox checkBoxIdea = (CheckBox) dialogView.findViewById(R.id.checkBoxIdea);
-        final CheckBox checkBoxImportant = (CheckBox) dialogView.findViewById(R.id.checkImportant);
-        final CheckBox checkBoxToDo = (CheckBox) dialogView.findViewById(R.id.checkBoxToDo);
+        final CheckBox cbIdea = (CheckBox) dialogView.findViewById(R.id.checkBoxIdea);
+        final CheckBox cbImportant = (CheckBox) dialogView.findViewById(R.id.checkImportant);
+        final CheckBox cbToDo = (CheckBox) dialogView.findViewById(R.id.checkBoxToDo);
 
         Button btCancel = (Button) dialogView.findViewById(R.id.buttonCancel);
         Button btOk = (Button) dialogView.findViewById(R.id.buttonOk);
@@ -46,19 +46,20 @@ public class DialogNewNote extends DialogFragment {     //Create a dialog
         });
 
         btOk.setOnClickListener(new View.OnClickListener() {        //IMPORTANT: LISTENERS WAIT FOR SOMETHING TO BE PRESSED.
-                                                                        //CHECKERS ONLY CHECK THE STATUS OF A RADIO BUTTON (FE)
+                                                                        // CHECKERS ONLY CHECK THE STATUS OF A RADIO BUTTON (FE)
             @Override
             public void onClick(View view) {
                 Note newNote = new Note();       //Class we have created.
 
-                newNote.setTitle(editTitle.getText().toString());
-                newNote.setDescription(editDescription.getText().toString());
+                newNote.setTitle(edTitle.getText().toString());
+                newNote.setDescription(edDescription.getText().toString());
 
-                newNote.setIdea(checkBoxIdea.isChecked());
-                newNote.setImportant(checkBoxImportant.isChecked());
-                newNote.setToDo(checkBoxToDo.isChecked());
+                newNote.setIdea(cbIdea.isChecked());
+                newNote.setImportant(cbImportant.isChecked());
+                newNote.setToDo(cbToDo.isChecked());
 
                 MainActivity callingActivity = (MainActivity) getActivity(); //Main Activity is in fact the main one.
+
                 callingActivity.createNewNote(newNote);
 
                 dismiss();      //It returns to the same point as the cancel button but saving the note.
@@ -68,6 +69,5 @@ public class DialogNewNote extends DialogFragment {     //Create a dialog
         return builder.create();
     }
 
-    public void show(FragmentManager fragmentManager, String s) {
-    }
+
 }
