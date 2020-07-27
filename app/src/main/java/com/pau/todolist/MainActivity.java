@@ -111,20 +111,20 @@ public class MainActivity extends AppCompatActivity {
             TextView textTitle = (TextView) findViewById(R.id.textTitle);
             TextView textDescription = (TextView) findViewById(R.id.textDescription);
 
-            ImageView imageImportant = (ImageView) findViewById(R.id.imageImportant);
-            ImageView imageToDo = (ImageView) findViewById(R.id.imageToDo);
-            ImageView imageIdea = (ImageView) findViewById(R.id.imageIdea);
+            ImageView imImportant = (ImageView) findViewById(R.id.imageImportant);
+            ImageView imToDo = (ImageView) findViewById(R.id.imageToDo);
+            ImageView imIdea = (ImageView) findViewById(R.id.imageIdea);
 
             Note currentNote = list.get(itemPos);
 
             if(!currentNote.isImportant()){
-                imageImportant.setVisibility(View.INVISIBLE);
+                imImportant.setVisibility(View.INVISIBLE);
             }
             if(!currentNote.isToDo()){
-                imageToDo.setVisibility(View.INVISIBLE);
+                imToDo.setVisibility(View.INVISIBLE);
             }
             if(!currentNote.isIdea()){
-                imageIdea.setVisibility(View.INVISIBLE);
+                imIdea.setVisibility(View.INVISIBLE);
             }
 
             textTitle.setText(currentNote.getTitle());
