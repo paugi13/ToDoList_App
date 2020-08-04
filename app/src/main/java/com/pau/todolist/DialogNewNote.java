@@ -58,6 +58,7 @@ public class DialogNewNote extends DialogFragment {     //Create a dialog
                 newNote.setImportant(cbImportant.isChecked());
                 newNote.setToDo(cbToDo.isChecked());
 
+
                 MainActivity callingActivity = (MainActivity) getActivity(); //Main Activity is in fact the main one.
 
                 callingActivity.createNewNote(newNote);
