@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewNote(Note note){   //DialogNewNote calls it and stores the new note and sendNoteSelected uses it
-       mNoteAdd.AddNote(note);
+       mNoteAdd.addNote(note);
     }
 
     @Override
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             return view;
         }
 
-        public void AddNote(Note n){
+        public void addNote(Note n){
             list.add(n);
             notifyDataSetChanged(); //Notifies the list that one note has been added.
                                     //The listView must be reseted.
