@@ -1,5 +1,8 @@
 package com.pau.todolist;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Note {
 
     private String mTitle;      //All variables will be private and only will modified through setters and getters.
@@ -8,6 +11,40 @@ public class Note {
     private boolean mToDo;
     private boolean mIdea;
     private boolean mImportant;
+
+    private static final String JSON_TITLE = "title";
+    private static final String JSON_DESCRIPTION = "description";
+    private static final String JSON_IDEA = "idea";
+    private static final String JSON_TODO = "todo";
+    private static final String JSON_IMPORTANT = "important";
+
+    //Constructor base vacío
+    public Note(){
+
+    }
+
+    //Constructor para crear una nota a partir de un objeto JSON
+    public Note(JSONObject jo) throws JSONException {
+        mTitle = jo.getString(JSON_TITLE);
+        mDescription = jo.getString(JSON_DESCRIPTION);
+        mIdea = jo.getBoolean(JSON_IDEA);
+        mToDo = jo.getBoolean(JSON_TODO);
+        mImportant = jo.getBoolean(JSON_IMPORTANT);
+    }
+
+    //El método toma las 5 variables de la nota y las serializa en un objeto tipo JSON
+    public JSONObject convertNoteToJSON() throws JSONException{
+
+        JSONObject jo = new JSONObject();
+
+        jo.put(JSON_TITLE, mTitle);
+        jo.put(JSON_DESCRIPTION, mDescription);
+        jo.put(JSON_IDEA, mIdea);
+        jo.put(JSON_TODO, mToDo);
+        jo.put(JSON_IMPORTANT, mImportant);
+
+        return jo;
+    }
 
     public String getTitle() {         //Alt + insert -> Creating getters and setters
         return mTitle;                  //We remove the m from the method name because of a convention.

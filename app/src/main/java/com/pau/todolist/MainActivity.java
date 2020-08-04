@@ -80,10 +80,36 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        mNoteAdd.saveNotes();
+    }
+
 
     public class NoteAdapter extends BaseAdapter {      //It would be the same as having everything put i NoteAdapter class.
                                                         //We make an inner class because we don't inflate any dialog. It isn't necessary to make such a distribution.
         List<Note> list = new ArrayList<Note>();   //The purpose of all this is to make the code more readable.
+        private JSONSerializer mSerializer;
+
+        public NoteAdapter(){
+            mSerializer = new JSONSerializer("ToDoListsJB.json", MainActivity.this.getApplicationContext());
+
+            try{
+                list = mSerializer.load();      //Converting a JSONArray object into a note one.
+            }catch (Exception e){
+                e.printStackTrace();            //We can see that load method is called in the constructor.
+            }                                   //That means that the list is automatically refreshed when the app is started.
+        }
+
+        public void saveNotes(){
+            try{
+                mSerializer.save(list);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
 
         @Override
         public int getCount() {
