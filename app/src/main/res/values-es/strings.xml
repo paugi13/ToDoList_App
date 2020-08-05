@@ -17,4 +17,6 @@
     <string name="rb_fast">Rápida</string>
     <string name="rb_slow">Lenta</string>
     <string name="rb_none">Estática</string>
+    <string name="content_description">1</string>
+    <string name="animations_title">Animaciones</string>
 </resources>

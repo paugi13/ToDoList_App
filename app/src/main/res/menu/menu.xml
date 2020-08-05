@@ -5,10 +5,11 @@
     <item android:id="@+id/add"
         android:icon="@drawable/ic_add_black_24dp"
         android:title="@string/action_add"
-        app:showAsAction="ifRoom"/> <!--If there's space-->
+        app:showAsAction="ifRoom"/><!--If there's space-->
 
-
-
-
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
 
 </menu>

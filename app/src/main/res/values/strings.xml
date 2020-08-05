@@ -17,5 +17,7 @@
     <string name="rb_none">None</string>
     <string name="idea_checkbox">Idea</string>
     <string name="content_description">1</string>
+    <string name="animations_title">Animations</string>
+
 
 </resources>

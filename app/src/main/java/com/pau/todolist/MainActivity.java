@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     //private Note mTempNote = new Note();  WHEN WE ONLY CREATED ONE NOTE.
 
     private NoteAdapter mNoteAdd;
+
+    private boolean mSound;
+    private int mAnimOption;
+    private SharedPreferences mPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
           */          //See that the code necessary to call the showNote dialog and the newNote dialog is the same.
     }
 
+    //El método on Resume se llama tanto después del On Create, como cuando volemos a la actividad después de pasar por otra
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPrefs = getSharedPreferences("To Do List JB", MODE_PRIVATE);
+        mSound = mPrefs.getBoolean("sound", true);
+        mAnimOption = mPrefs.getInt("anim option", SettingsActivity.FAST);
+    }
+
+
     public void createNewNote(Note note){   //DialogNewNote calls it and stores the new note and sendNoteSelected uses it
        mNoteAdd.addNote(note);
     }
@@ -76,6 +91,12 @@ public class MainActivity extends AppCompatActivity {
             DialogNewNote openNew = new DialogNewNote();
             openNew.show(getSupportFragmentManager(),"3456");   //Necessary to open the dialog.
         }
+
+        if (item.getItemId() == R.id.action_settings){
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        }
+
         //Here we would implement the code of the other options of the menu. FE: Button to open the settings.
         return false;
     }
