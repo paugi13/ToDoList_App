@@ -1,10 +1,6 @@
 package com.pau.todolist;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +12,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mNoteAdd = new NoteAdapter();
-        ListView listNotes = (ListView) findViewById(R.id.list_view);
+        ListView listNotes = (ListView) findViewById(R.id.list_view);           //Here, view.findViewById isn't necessary.
 
-        listNotes.setAdapter(mNoteAdd);
+        listNotes.setAdapter(mNoteAdd); //It has to work with the NoteAdapter info.
 
         listNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -101,19 +100,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int itemPos, View view, ViewGroup viewGroup) {
+        public View getView(int itemPos, View view, ViewGroup viewGroup) {  //Designed to operate with the new element.
 
             if(view == null){       //null -> Indicates that there's no view at the moment. -> In this if we are initializing it.
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.list_item, viewGroup, false);
             }
 
-            TextView textTitle = (TextView) findViewById(R.id.textTitle);
-            TextView textDescription = (TextView) findViewById(R.id.textDescription);
+            TextView textTitle = (TextView) view.findViewById(R.id.textTitle);              //We must include VIEW.findViewById. --> We are working with inflaters.
+            TextView textDescription = (TextView) view.findViewById(R.id.textDescription);
 
-            ImageView imImportant = (ImageView) findViewById(R.id.imageImportant);
-            ImageView imToDo = (ImageView) findViewById(R.id.imageToDo);
-            ImageView imIdea = (ImageView) findViewById(R.id.imageIdea);
+            ImageView imImportant = (ImageView) view.findViewById(R.id.imageImportant);
+            ImageView imToDo = (ImageView) view.findViewById(R.id.imageToDo);
+            ImageView imIdea = (ImageView) view.findViewById(R.id.imageIdea);
 
             Note currentNote = list.get(itemPos);
 

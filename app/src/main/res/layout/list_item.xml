@@ -9,17 +9,20 @@
         android:id="@+id/imageToDo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_check_box_outline_blank_black_24dp"
-        android:layout_alignParentEnd="true"
-        android:contentDescription="@string/content_description"/>
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/imageIdea"
+        android:contentDescription="@string/content_description"
+        app:srcCompat="@drawable/ic_check_box_outline_blank_black_24dp" />
 
     <ImageView
         android:id="@+id/imageIdea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_gesture_black_24dp"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/content_description" />
+        android:layout_marginStart="5dp"
+
+        android:layout_toEndOf="@+id/imageImportant"
+        android:contentDescription="@string/content_description"
+        app:srcCompat="@drawable/ic_gesture_black_24dp" />
 
     <ImageView
         android:id="@+id/imageImportant"
@@ -34,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageImportant"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/title_hint"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
