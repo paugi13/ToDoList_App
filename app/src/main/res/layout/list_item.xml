@@ -9,7 +9,7 @@
         android:id="@+id/imageToDo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/imageIdea"
         android:contentDescription="@string/content_description"
         app:srcCompat="@drawable/ic_check_box_outline_blank_black_24dp" />
@@ -18,7 +18,7 @@
         android:id="@+id/imageIdea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/imageImportant"
         android:contentDescription="@string/content_description"
         app:srcCompat="@drawable/ic_gesture_black_24dp" />
