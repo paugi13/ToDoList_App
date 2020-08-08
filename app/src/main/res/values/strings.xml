@@ -18,6 +18,7 @@
     <string name="idea_checkbox">Idea</string>
     <string name="content_description">1</string>
     <string name="animations_title">Animations</string>
+    <string name="settings_activity_name">Settings</string>
 
 
 </resources>

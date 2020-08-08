@@ -155,12 +155,12 @@ public class MainActivity extends AppCompatActivity {
                 view = inflater.inflate(R.layout.list_item, viewGroup, false);
             }
 
-            TextView textTitle = (TextView) findViewById(R.id.textTitle);
-            TextView textDescription = (TextView) findViewById(R.id.textDescription);
+            TextView textTitle = (TextView) view.findViewById(R.id.textTitle);
+            TextView textDescription = (TextView) view.findViewById(R.id.textDescription);
 
-            ImageView imImportant = (ImageView) findViewById(R.id.imageImportant);
-            ImageView imToDo = (ImageView) findViewById(R.id.imageToDo);
-            ImageView imIdea = (ImageView) findViewById(R.id.imageIdea);
+            ImageView imImportant = (ImageView) view.findViewById(R.id.imageImportant);
+            ImageView imToDo = (ImageView) view.findViewById(R.id.imageToDo);
+            ImageView imIdea = (ImageView) view.findViewById(R.id.imageIdea);
 
             Note currentNote = list.get(itemPos);
 
