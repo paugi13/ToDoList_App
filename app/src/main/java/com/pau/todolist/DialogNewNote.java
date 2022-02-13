@@ -67,7 +67,7 @@ public class DialogNewNote extends DialogFragment {     //Create a dialog
             }
         });
 
-        return builder.create();
+        return builder.create()
     }
 
 
